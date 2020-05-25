@@ -16,7 +16,7 @@ client.on('message', async message => {
         const role = message.guild.roles.cache.get('710167214476624020');
         if(role) {
             try {
-                await message.member.role.add(role);
+                await message.member.roles.add(role);
                 const embed = new MessageEmbed()
                 .setColor('#00FFFF')
                 .setColor(`**You Have Been Verified In This Server**`)
