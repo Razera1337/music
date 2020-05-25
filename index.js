@@ -1,6 +1,6 @@
 require('dotenv').config();
 const { Client } = require('discord.js');
-const { MessageEmbed } = require('discord.js');
+const { RichEmbed } = require('discord.js');
 const client = new Client();
 client.login(process.env.BOT_TOKEN);
 
@@ -14,11 +14,11 @@ client.on('message', async message => {
     if(message.content.toLowerCase() === '!!verify' && message.channel.id === '714503832914231397')
     {   
         await message.delete().catch(err => console.log(err));
-        const role = message.guild.roles.cache.get('710167214476624020');
+        const role = message.guild.roles.get('710167214476624020');
         if(role) {
             try {
-                await message.member.roles.add(role);
-                const embed = new MessageEmbed()
+                await message.member.addRole(role);
+                const embed = new RichEmbed()
                 .setColor('#00FFFF')
                 .setColor(`**You Have Been Verified In This Server**`)
                 return message.channel.send(embed).then(msg => {msg.delete(20000)});
