@@ -1,49 +1,35 @@
-const { Client } = require('discord.js');
-const client = new Client();
-const createCaptcha = require('./captcha');
-const fs = require('fs').promises;
 require('dotenv').config();
+const { Client } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
+const client = new Client();
 client.login(process.env.BOT_TOKEN);
 
-client.on('ready', () => {
-    console.log(`${client.user.tag} has logged in.`);
+client.on('ready', () => console.log(`${client.user.tag} has logged in.`));
+
+client.on('message', async message => {
+    if(message.author.bot) return;
+    if(message.channel.id === '714503832914231397')
+        await message.delete();
+    if(message.content.toLowerCase() === '!!verify' && message.channel.id === '714503832914231397')
+    {   
+        await message.delete().catch(err => console.log(err));
+        const role = message.guild.roles.get('710167214476624020');
+        if(role) {
+            try {
+                await message.member.addRole(role);
+                const embed = new MessageEmbed()
+                .setColor('#00FFFF')
+                .setColor(`**You Have Been Verified In This Server**`)
+                return message.channel.send(embed).then(msg => {msg.delete(20000)});
+            }
+            catch(err) {
+                console.log(err);
+            }
+            message.delete()
+        }
+    }
 });
 
-client.on('guildMemberAdd', async member => {
-    const captcha = await createCaptcha();
-    try {
-        const msg = await member.send('You have 60 seconds to solve the captcha', {
-            files: [{
-                attachment: `${__dirname}/captchas/${captcha}.png`,
-                name: `${captcha}.png`
-            }]
-        });
-        try {
-            const filter = m => {
-                if(m.author.bot) return;
-                if(m.author.id === member.id && m.content === captcha) return true;
-                else {
-                    m.channel.send('You entered the captcha incorrectly.');
-                    return false;
-                }
-            };
-            const response = await msg.channel.awaitMessages(filter, { max: 1, time: 20000, errors: ['time']});
-            if(response) {
-                await msg.channel.send('You have verified yourself!');
-                await member.roles.add('710167214476624020');
-                await fs.unlink(`${__dirname}/captchas/${captcha}.png`)
-                    .catch(err => console.log(err));
-            }
-        }
-        catch(err) {
-            console.log(err);
-            await msg.channel.send('You did not solve the captcha correctly on time.');
-            await member.kick();
-            await fs.unlink(`${__dirname}/captchas/${captcha}.png`)
-                    .catch(err => console.log(err));
-        }
-    }
-    catch(err) {
-        console.log(err);
-    }
+client.on('guildMemberAdd', member => {
+    console.log(member.user.tag);
 });
