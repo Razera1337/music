@@ -30,7 +30,7 @@ client.on('guildMemberAdd', async member => {
             const response = await msg.channel.awaitMessages(filter, { max: 1, time: 20000, errors: ['time']});
             if(response) {
                 await msg.channel.send('You have verified yourself!');
-                await member.roles.add('640340203763925002');
+                await member.roles.add('710167214476624020');
                 await fs.unlink(`${__dirname}/captchas/${captcha}.png`)
                     .catch(err => console.log(err));
             }
