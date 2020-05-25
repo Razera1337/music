@@ -2,7 +2,7 @@ const { Client } = require('discord.js');
 const client = new Client();
 const createCaptcha = require('./captcha');
 const fs = require('fs').promises;
-const token = require('botconfig.json');
+const token = require('./botconfig.json');
 client.login(token);
 
 client.on('ready', () => {
