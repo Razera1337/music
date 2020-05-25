@@ -22,7 +22,7 @@ client.on('message', async message => {
                 await message.member.addRole(role);
                 const embed = new RichEmbed()
                 .setColor('#00FFFF')
-                .setColor(`**You Have Been Verified In This Server**`)
+                .setDescription(`**You Have Been Verified In This Server**`)
                 return message.channel.send(embed).then(msg => {msg.delete(20000)});
             }
             catch(err) {
