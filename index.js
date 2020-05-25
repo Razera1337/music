@@ -6,7 +6,7 @@ client.login(process.env.BOT_TOKEN);
 
 client.on("ready", async () => {
     console.log(`${client.user.username} is online`)
-    client.user.setActivity("Hello", {type: "STREAMING", url:"https://twitch.tv/Strandable"});
+    client.user.setActivity("Hello World", {type: "STREAMING", url:"https://twitch.tv/Strandable"});
 })
 
 client.on('message', async message => {
