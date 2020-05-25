@@ -13,10 +13,10 @@ client.on('message', async message => {
     if(message.content.toLowerCase() === '!!verify' && message.channel.id === '714503832914231397')
     {   
         await message.delete().catch(err => console.log(err));
-        const role = message.guild.roles.get('710167214476624020');
+        const role = message.guild.roles.cache.get('710167214476624020');
         if(role) {
             try {
-                await message.member.addRole(role);
+                await message.member.role.add(role);
                 const embed = new MessageEmbed()
                 .setColor('#00FFFF')
                 .setColor(`**You Have Been Verified In This Server**`)
