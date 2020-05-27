@@ -11,12 +11,12 @@ client.on("ready", async () => {
 
 client.on('message', async message => {
     if(message.author.bot) return;
-    if(message.channel.id === '714503832914231397')
+    if(message.channel.id === '715102809791660063')
         await message.delete();
-    if(message.content.toLowerCase() === '!!verify' && message.channel.id === '714503832914231397')
+    if(message.content.toLowerCase() === '!!verify' && message.channel.id === '715102809791660063')
     {   
         await message.delete().catch(err => console.log(err));
-        const role = message.guild.roles.get('710167214476624020');
+        const role = message.guild.roles.get('715060227485204481');
         if(role) {
             try {
                 await message.member.addRole(role);
@@ -28,7 +28,6 @@ client.on('message', async message => {
             catch(err) {
                 console.log(err);
             }
-            message.delete()
         }
     }
 });
