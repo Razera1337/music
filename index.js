@@ -5,6 +5,7 @@ const client = new Client();
 client.login(process.env.BOT_TOKEN);
 const guildInvites = new Map();
 
+client.on('inviteCreate', async invite => guildInvites.set(invite.guild.id, await invite.guild.fetchInvites()));
 client.on("ready", async () => {
     console.log(`${client.user.username} is online`)
     client.user.setActivity("Hello World", {type: "STREAMING", url:"https://twitch.tv/Strandable"});
