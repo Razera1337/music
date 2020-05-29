@@ -8,6 +8,11 @@ const guildInvites = new Map();
 client.on("ready", async () => {
     console.log(`${client.user.username} is online`)
     client.user.setActivity("Hello World", {type: "STREAMING", url:"https://twitch.tv/Strandable"});
+    client.guilds.cache.forEach(guild => {
+        guild.fetchInvites()
+            .then(invites => guildInvites.set(guild.id, invites))
+            .catch(err => console.log(err));
+    });
 })
 
 client.on('message', async message => {
