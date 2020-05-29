@@ -50,7 +50,8 @@ client.on('guildMemberAdd', async member => {
     try {
         const usedInvite = newInvites.find(inv => cachedInvites.get(inv.code).uses < inv.uses);
         const embed = new RichEmbed()
-            .setDescription(`${member.user.tag} is the ${member.guild.memberCount} to join.\nJoined using ${usedInvite.inviter.tag}\nNumber of uses: ${usedInvite.uses}`)
+            .setColor("Green")
+            .setDescription(`**${member.user.tag}** is the **${member.guild.memberCount}** to join.\n\nJoined using **${usedInvite.inviter.tag}**\n\nNumber of uses: **${usedInvite.uses}**`)
             .setTimestamp()
             .setTitle(`${usedInvite.url}`);
         const welcomeChannel = member.guild.channels.find(channel => channel.id === '715061320831074325');
