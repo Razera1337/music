@@ -1,1 +1,1 @@
-worker: npm -Dserver.port=$PORT start
+worker: node index.js
