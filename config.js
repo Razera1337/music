@@ -1,10 +1,10 @@
 require("dotenv/config");
 
 module.exports = {
-  token: "NzI0NDk3MjM0NjI4MDUxMDA2.XxXc_Q.IERTknzeMRnOOVq5Fm8TZaYnORA",
+  token: "Njk4NDk3MTkyOTM1MTYxODY2.XpGsNA.oUJIKz9iulAg3O9G7aqwUtORQOs",
   api_key: "AIzaSyDQGuX9dXBM9uKKeL0wzxeDGpwLFUrTNng",
   embedColor: "#e08512",
-  prefix: "!",
+  prefix: "!!",
 };
 
 module.exports.streamConfig = {
