@@ -27,13 +27,13 @@ module.exports = {
       .setDescription(
         `**[${
           queue.songs[0].title
-        }](${queue.songs[0].url})** Posted By **${queue.songs[0].info.author.name}**`
+        }](${queue.songs[0].url})**\nPosted By **${queue.songs[0].info.author.name}**`
       )
       .addField(
         "**Player Information**", `Queue Length: **${client.funcs.msToTime(songTime, "hh:mm:ss")}**\nTrack Time Length: **${client.funcs.msToTime(songTime, "hh:mm:ss")}**`, true
       )
       .addField(
-        "**Requested By**", `${queue.songs[0].author.tag}`, true
+        "**Requested By**", `${queue.songs[0].author.tag}`
       )
       .addField(`**Length:** [\`${client.funcs.msToTime(songTime, "hh:mm:ss")}\`]`, `\`\`\`▶ ${array.join("")} ${client.funcs.msToTime(
           completed,

@@ -38,6 +38,7 @@
     "utf-8-validate": "^5.0.2",
     "ytdl-core": "^3.1.0",
     "ytsr": "^0.1.15",
-    "zlib-sync": "^0.1.6"
+    "zlib-sync": "^0.1.6",
+    "moment": "^2.27.0"
   }
 }
