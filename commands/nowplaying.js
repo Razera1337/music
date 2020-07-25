@@ -11,7 +11,7 @@ module.exports = {
     let completed = (
       queue.connection.dispatcher.streamTime + queue.time
     ).toFixed(0);
-    let barlength = 20;
+    let barlength = 25;
     let completedpercent = ((completed / songTime) * barlength).toFixed(0);
     let array = [];
     for (let i = 0; i < completedpercent - 1; i++) {
