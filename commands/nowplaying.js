@@ -15,11 +15,11 @@ module.exports = {
     let completedpercent = ((completed / songTime) * barlength).toFixed(0);
     let array = [];
     for (let i = 0; i < completedpercent - 1; i++) {
-      array.push(`[■](${queue.songs[0].url})`);
+      array.push("─");
     }
-    array.push(`[■](${queue.songs[0].url})`);
+    array.push("🔘");
     for (let i = 0; i < barlength - completedpercent - 1; i++) {
-      array.push("□");
+      array.push("─");
     }
     const embed = new Discord.MessageEmbed()
       .setAuthor(`Playing | ${queue.volume}% 🔉`, "https://media.discordapp.net/attachments/734734747976073306/735033357435404288/496793735946960916.gif")
@@ -35,10 +35,10 @@ module.exports = {
       .addField(
         "**Requested By**", `${queue.songs[0].author.tag}`, true
       )
-      .addField("**Length**", `**${client.funcs.msToTime(
+      .addField(`**Length:** [\`${client.funcs.msToTime(
           completed,
           "hh:mm:ss"
-        )}** | ${array.join("")} | **${client.funcs.msToTime(songTime, "hh:mm:ss")}**`
+        )}\`]`, `\`\`\`▶ ${array.join("")} ${client.funcs.msToTime(songTime, "hh:mm:ss")}\`\`\``
       )
       .setThumbnail(queue.songs[0].info.thumbnail.thumbnails[4].url)
       .setColor(client.config.embedColor);
