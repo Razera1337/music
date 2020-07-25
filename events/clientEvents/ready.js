@@ -1,8 +1,9 @@
+
 module.exports = {
   name: "ready",
   async execute(client) {
     client.user.setActivity(`!help | 🎶`, {
-      type: "LISTENING",
+      type: "STREAMING",
     });
     console.log(`- Activated -`);
   },
