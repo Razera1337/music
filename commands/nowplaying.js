@@ -35,10 +35,10 @@ module.exports = {
       .addField(
         "**Requested By**", `${queue.songs[0].author.tag}`, true
       )
-      .addField(`**Length:** [\`${client.funcs.msToTime(
+      .addField(`**Length:** [\`${client.funcs.msToTime(songTime, "hh:mm:ss")}\`]`, `\`\`\`▶ ${array.join("")} ${client.funcs.msToTime(
           completed,
           "hh:mm:ss"
-        )}\`]`, `\`\`\`▶ ${array.join("")} ${client.funcs.msToTime(songTime, "hh:mm:ss")}\`\`\``
+        )}\`\`\``
       )
       .setThumbnail(queue.songs[0].info.thumbnail.thumbnails[4].url)
       .setColor(client.config.embedColor);
