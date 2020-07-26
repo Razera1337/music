@@ -11,7 +11,7 @@ module.exports = {
     let completed = (
       queue.connection.dispatcher.streamTime + queue.time
     ).toFixed(0);
-    let barlength = 25;
+    let barlength = 30;
     let completedpercent = ((completed / songTime) * barlength).toFixed(0);
     let array = [];
     for (let i = 0; i < completedpercent - 1; i++) {
@@ -33,7 +33,7 @@ module.exports = {
         "**Player Information**", `Queue Length: **${client.funcs.msToTime(songTime, "hh:mm:ss")}**\nTrack Time Length: **${client.funcs.msToTime(songTime, "hh:mm:ss")}**`, true
       )
       .addField(
-        "**Requested By**", `${queue.songs[0].author.tag}`
+        "**Requested By**", `${queue.songs[0].author.tag}`, true
       )
       .addField(`**Length:** [\`${client.funcs.msToTime(songTime, "hh:mm:ss")}\`]`, `\`\`\`▶ ${array.join("")} ${client.funcs.msToTime(
           completed,
