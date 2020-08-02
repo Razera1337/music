@@ -39,6 +39,7 @@
     "ytdl-core": "^3.1.0",
     "ytsr": "^0.1.15",
     "zlib-sync": "^0.1.6",
-    "moment": "^2.27.0"
+    "moment": "^2.27.0",
+    "lyrics-finder": "^21.0.3"
   }
 }
