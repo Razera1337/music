@@ -1,7 +1,7 @@
 require("dotenv/config");
 
 module.exports = {
-  token: "Njk4NDk3MTkyOTM1MTYxODY2.XpGsNA.cwB9mXLqvfW1THjR1TJVpg-_xPM",
+  token: "Njk4NDk3MTkyOTM1MTYxODY2.XpGsNA.lF-Zpx-XragQymopCH7MkRVqsb4",
   api_key: "AIzaSyDQGuX9dXBM9uKKeL0wzxeDGpwLFUrTNng",
   embedColor: "#e08512",
   prefix: "!!",
