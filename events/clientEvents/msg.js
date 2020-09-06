@@ -3,7 +3,13 @@ module.exports = {
   async execute(client, msg, Discord) {
     if (msg.author.bot || !msg.guild) return;
     let prefix = client.config.prefix;
-    const args = msg.content.slice(prefix.length).split(" ");
+    const prefixes = ['!!', 'a!'];
+    let prefixe = false;
+  for(const thisPrefix of prefixes) {
+    if(message.content.toLowerCase().startsWith(thisPrefix)) prefixe = thisPrefix;
+  }
+  if(!prefixe) return;
+    const args = msg.content.slice(prefixe.length).split(" ");
     if (client.config.devMode) prefix = client.config.devPrefix;
     if (msg.mentions.users.first()) {
       if (msg.mentions.users.first().id === client.user.id) {
